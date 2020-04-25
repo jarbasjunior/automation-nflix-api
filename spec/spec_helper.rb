@@ -1,6 +1,9 @@
 require 'awesome_print'
-require 'database'
+require 'factory_bot'
 require 'httparty'
+
+require_relative 'database'
+require_relative 'factories'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -10,4 +13,5 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
   config.shared_context_metadata_behavior = :apply_to_host_groups
+  config.include FactoryBot::Syntax::Methods
 end
