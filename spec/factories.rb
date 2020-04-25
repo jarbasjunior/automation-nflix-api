@@ -10,4 +10,10 @@ FactoryBot.define do
       Database.new.delete(user.email)
     end
   end
+  
+  factory :user_worng_email, class: UserModel do
+    full_name { 'Fernando Papito' }
+    email { 'www.papito.com.br' }
+    password { 'jarvis123' }
+  end
 end
