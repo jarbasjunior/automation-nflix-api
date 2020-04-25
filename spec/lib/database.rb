@@ -6,7 +6,7 @@ class Database
     @connection = PG.connect(configs)
   end
 
-  def delete(email)
+  def delete_user(email)
     @connection.exec("delete from users where email = '#{email}';")
   end
   

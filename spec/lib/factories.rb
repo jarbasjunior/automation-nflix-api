@@ -8,7 +8,7 @@ FactoryBot.define do
     password { 'jarvis123' }
 
     after(:build) do |user|
-      Database.new.delete(user.email)
+      Database.new.delete_user(user.email)
     end
   end
 
@@ -19,7 +19,7 @@ FactoryBot.define do
     password { '123456' }
 
     after(:build) do |user|
-      Database.new.delete(user.email)
+      Database.new.delete_user(user.email)
       result = ApiUser.save(user.to_hash)
       user.id = result.parsed_response['id']
     end

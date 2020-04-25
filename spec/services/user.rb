@@ -15,4 +15,8 @@ class ApiUser
   def self.find(user_id, token)
     get("/user/#{user_id}", headers: { 'Authorization' => token })
   end
+
+  def self.remove(user_id, token)
+    delete("/user/#{user_id}", headers: { 'Authorization' => token })
+  end
 end
