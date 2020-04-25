@@ -1,4 +1,4 @@
-describe 'sign up' do
+describe 'post' do
   context 'when register a new user' do
     let(:result) { ApiUser.save(build(:user).to_hash) }
     it { expect(result.response.code).to eql '200' }
