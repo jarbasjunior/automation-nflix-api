@@ -1,6 +1,6 @@
 class ApiUser
   include HTTParty
-  base_uri 'http://localhost:3000'  
+  base_uri 'http://localhost:3001'  
   headers 'Content-Type' => 'application/json'
 
   def self.token(user_email, user_password)
@@ -10,6 +10,10 @@ class ApiUser
   
   def self.save(user)
     post('/user', body: user.to_json)
+  end
+  
+  def self.update(user_id, token, user)
+    put("/user/#{user_id}", body: user.to_json, headers: { 'Authorization' => token })
   end
 
   def self.find(user_id, token)
